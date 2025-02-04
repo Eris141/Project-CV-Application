@@ -55,9 +55,11 @@ export default function ExperienceForm({onSubmit}) {
     }
   }
 
-  return (
-    <>
-    <div className="experienc-form">
+  if ( submit === false) {
+
+    return (
+      <>
+    <div className="form">
       <h2>Experience</h2>
       <form>
       <h3>Company Name</h3>
@@ -75,6 +77,22 @@ export default function ExperienceForm({onSubmit}) {
     </div>
     </>
   )
+  } else {
+    return (
+
+      <>
+      <div className="form">
+        <h2>Experience info</h2>
+        <p>{formData.companyName}</p>
+        <p>{formData.positionTitle}</p>
+        <p>{formData.responsibilitis}</p>
+        <button onClick={() => {
+          submit === false ? setSubmit(true) : setSubmit(false);
+        }}>Edit</button>
+    </div>    
+    </>
+    )
+  }
 }
 
 function Input({name, value, setFormData, type, error}) {

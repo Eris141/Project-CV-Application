@@ -5,6 +5,7 @@ export default function GeneralInfoForm({onSubmit}) {
   const [ email, setEmail ] = useState('');
   const [ number, setNumber ] = useState('');
   const [errors, setErrors] = useState({});
+  const [ submit, setSubmit ] = useState(false);
 
   function validateForm() {
     let errors = {};
@@ -32,25 +33,44 @@ export default function GeneralInfoForm({onSubmit}) {
     const errors = validateForm();
     if (Object.keys(errors).length === 0 ) {
       onSubmit(name, email, number)
+      setSubmit(true);
+      setErrors({})
     } else  {
       setErrors(errors)
     }
   }
-  return (
-    <>
-    <div className='general-info-form'>
+  if (submit === false ) {
+
+    return (
+      <>
+    <div className='form'>
+      <h2>General Info</h2>
     <form>
-      <h3>Name</h3>
+      <p>Name</p>
       <InputHandle type="text"  name={name} setName={setName} error={errors.name} />
-      <h3>Email</h3>
+      <p>Email</p>
       <InputHandle type="email" name={email} setName={setEmail} error={errors.email} />
-      <h3>Number</h3>
+      <p>Number</p>
       <InputHandle type="number"  name={number} setName={setNumber} error={errors.number} />
     </form>
-    <button onSubmit={handleSubmit} onClick={handleSubmit}>Save</button>
+    <button onSubmit={handleSubmit} onClick={handleSubmit}>Submit</button>
     </div>
     </>
   )
+  } else {
+    return (
+      <>
+      <div className='form'>
+       <h2>General info</h2>
+       <p>{name}</p>
+       <p>{email}</p>
+      <button onClick={() => {
+        submit === false ? setSubmit(true) : setSubmit(false);
+      }}>Edit</button>
+    </div>
+      </>
+    )
+  }
 }
 
 function InputHandle({ name,setName,type,error}) {

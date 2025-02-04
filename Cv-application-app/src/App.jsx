@@ -1,16 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-import GeneralInfo from './GeneralInfo/GeneralInfo'
-import EducationFormInfo from './Education/EducationItems'
-import ExperienceItems from './Experience/ExperienceItem'
+import FormSection from './DisplaySection/FormSection'
 
 function App() {
   return (  
     <>
-      <div className='app'>
-        <GeneralInfo/>
-        <EducationFormInfo/>
-        <ExperienceItems/>
+      <div className='app-container'>
+        <FormSection/>
         </div>
      </>
   )

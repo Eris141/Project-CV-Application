@@ -14,15 +14,11 @@ export default function GeneralInfo() {
 
   return (
     <>
-    <div className="general-display">
       <GeneralInfoForm onSubmit={onFormSubmit} />
-      <div className="general-info-render">
       <h2>General Information</h2>
       <p>Name: {name}</p>
       <p>Email: {email}</p>
       <p>Phone number: {number}</p>
-      </div>
-    </div>
     </>
   )
 

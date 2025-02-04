@@ -74,15 +74,14 @@ export default function EducationForm({onSubmit}) {
   function HandleCompletetRender() {
     if (showForm && formData.schoolName !== "") {
       return (
-        <div className="education-form">
-          <div>
+
+          <div className="form">
           <h2>Educatio here</h2>
           <p>{formData.schoolName}</p>
           <p>{formData.startingDate} - {formData.endingDate}</p>
           <button onClick={handelDelete} >Delete</button>
           <button onClick={handleSubmit}>Edit</button>
           </div>
-        </div>
       )
     }
   };
@@ -91,18 +90,19 @@ export default function EducationForm({onSubmit}) {
   if (submit === false ) {
     return (
       <>
-      <div className="education-form">
+      <div className="form">
+        <h2>Education Info</h2>
       <form>
-        <h2>School Name</h2>
+        <p>School Name</p>
         <Inputs setFormData={setFormData} type="text" value={formData.schoolName} name="schoolName" error={formData.errors.schoolName}/>
-        <h2>Deggree/Program</h2>
+        <p>Deggree/Program</p>
         <Inputs setFormData={setFormData} type="text" value={formData.degree} name="degree"  error={formData.errors.degree}/>
-        <h2>Starting Date</h2>
+        <p>Starting Date</p>
         <Inputs setFormData={setFormData} type="date" value={formData.startingDate} name="startingDate" error={formData.errors.startingDate}/>
-        <h2>Ending Date</h2>
+        <p>Ending Date</p>
         <Inputs setFormData={setFormData} type="date" value={formData.endingDate} name="endingDate" error={formData.errors.endingDate}/>
       </form>
-        <button onClick={HandleSubmit} onSubmit={HandleSubmit}>Save</button>
+        <button onClick={HandleSubmit} onSubmit={HandleSubmit}>Submit</button>
         {/* <button onClick={HandleSubmit} >Add New</button> */}
       </div>
       </>
@@ -131,4 +131,4 @@ function Inputs({name, setFormData, type, value, error}) {
     {error && <span>{error}</span>}
     </>
   )
-}
+} 

@@ -16,7 +16,7 @@ export default function EducationFormInfo() {
 
   return (
     <>
-    <div className="education-display">
+    <div className="general-display">
     <EducationForm onSubmit={onFormSubmit} />
     <div className="education-render">
       <h2>Education Information</h2>
